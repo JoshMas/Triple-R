@@ -11,7 +11,7 @@ public class LevelSection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 5; ++i)
+        for(int i = 0; i < GameManager.Instance.LitterNumber; ++i)
         {
             Instantiate(GameManager.Instance.GetRandomLitter(), GetRandomPosition(), Quaternion.identity, transform);
         }
@@ -20,14 +20,15 @@ public class LevelSection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(GameManager.Instance.ScrollSpeed * Time.deltaTime * Vector2.down);
+        transform.Translate(GameManager.Instance.ScrollSpeed * Time.deltaTime * Vector3.back);
     }
 
-    private Vector2 GetRandomPosition()
+    private Vector3 GetRandomPosition()
     {
         float xVal = size.x * .5f;
         float yVal = size.y * .5f;
-        return new Vector2(Random.Range(transform.position.x - xVal, transform.position.x + xVal), 
+        return new Vector3(Random.Range(transform.position.x - xVal, transform.position.x + xVal),
+            0,
             Random.Range(transform.position.y - yVal, transform.position.y + yVal));
     }
 }

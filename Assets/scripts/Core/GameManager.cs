@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float scrollSpeed;
     [SerializeField]
+    private float litterInitial;
+    [SerializeField]
+    private float litterMultiplier;
+    [SerializeField]
+    private float litterMax;
+    [SerializeField]
     private GameObject levelSectionPrefab;
 
     #region Prefabs
@@ -37,7 +43,16 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public float ScrollSpeed { get { return scrollSpeed; } }
-    private float timer = 0;
+    public float LitterNumber
+    {
+        get
+        {
+            float num = litterInitial + litterMultiplier * gameTimer;
+            return num > litterMax ? litterMax : num;
+        }
+    }
+    private float gameTimer = 0;
+    private float levelSectionTimer = 0;
     private List<GameObject> level;
 
     private void Awake()
@@ -50,18 +65,19 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         AddLevelSection(transform.position);
-        AddLevelSection(transform.position - Vector3.down * 10);
-        AddLevelSection(transform.position - Vector3.down * 20);
+        AddLevelSection(transform.position - Vector3.back * 10);
+        AddLevelSection(transform.position - Vector3.back * 20);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if(timer >= 10 / scrollSpeed)
+        gameTimer += Time.deltaTime;
+        levelSectionTimer += Time.deltaTime;
+        if(levelSectionTimer >= 10 / scrollSpeed)
         {
-            timer = 0;
-            AddLevelSection(transform.position - Vector3.down * 20);
+            levelSectionTimer = 0;
+            AddLevelSection(transform.position - Vector3.back * 20);
             RemoveLevelSection();
         }
     }
@@ -70,7 +86,6 @@ public class GameManager : MonoBehaviour
     {
         GameObject newSection = Instantiate(levelSectionPrefab, _position, Quaternion.identity);
         level.Add(newSection);
-        Debug.Log("a");
     }
 
     private void RemoveLevelSection()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 962663503668178468}
   - component: {fileID: 962663503668178469}
-  - component: {fileID: 962663503668178471}
+  - component: {fileID: 6405702248628760519}
   m_Layer: 0
   m_Name: Litter
   m_TagString: Untagged
@@ -45,22 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5cd3468cf564141871b9d00e292a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &962663503668178471
-CircleCollider2D:
+  Recyclable: 0
+--- !u!135 &6405702248628760519
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962663503668178474}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &962663503872913019
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +70,6 @@ GameObject:
   - component: {fileID: 962663503872913018}
   - component: {fileID: 962663503872913015}
   - component: {fileID: 962663503872913012}
-  - component: {fileID: 962663503872913013}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -143,16 +140,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &962663503872913013
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962663503872913019}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

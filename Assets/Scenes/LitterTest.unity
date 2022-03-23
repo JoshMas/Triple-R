@@ -329,6 +329,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 2
+  litterInitial: 1
+  litterMultiplier: 1
+  litterMax: 5
   levelSectionPrefab: {fileID: 109346268508635250, guid: 96279d3c22cb31c4eada04aecda1ba04, type: 3}
   litterPrefabs:
   - {fileID: 962663503668178474, guid: 2081120b8107f93419581a37d42f0c1c, type: 3}
