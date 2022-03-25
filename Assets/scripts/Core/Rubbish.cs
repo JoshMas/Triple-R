@@ -28,7 +28,11 @@ public class Rubbish : MonoBehaviour
         }
         else if (other.CompareTag("Bin"))
         {
-            timer_countdown.Instance.AddTime(2);
+            if(other.GetComponent<Bin>().Recyclable == Recyclable)
+                timer_countdown.Instance.AddTime(2);
+            else if(!Recyclable)
+                timer_countdown.Instance.AddTime(-0.5f);
+
             Destroy(gameObject);
         }
         else

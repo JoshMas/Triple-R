@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public float ScrollSpeed { get { return scrollSpeed; } }
+    private float sectionLength;
     public float LitterNumber
     {
         get
@@ -59,14 +60,15 @@ public class GameManager : MonoBehaviour
     {
         Singleton();
         level = new List<GameObject>();
+        sectionLength = levelSectionPrefab.GetComponent<LevelSection>().Size.y;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         AddLevelSection(transform.position);
-        AddLevelSection(transform.position - Vector3.back * 10);
-        AddLevelSection(transform.position - Vector3.back * 20);
+        AddLevelSection(transform.position - Vector3.back * sectionLength);
+        AddLevelSection(transform.position - 2 * sectionLength * Vector3.back);
     }
 
     // Update is called once per frame
@@ -74,10 +76,10 @@ public class GameManager : MonoBehaviour
     {
         gameTimer += Time.deltaTime;
         levelSectionTimer += Time.deltaTime;
-        if(levelSectionTimer >= 10 / scrollSpeed)
+        if(levelSectionTimer >= sectionLength / scrollSpeed)
         {
             levelSectionTimer = 0;
-            AddLevelSection(transform.position - Vector3.back * 20);
+            AddLevelSection(transform.position - 2 * sectionLength * Vector3.back);
             RemoveLevelSection();
         }
     }
