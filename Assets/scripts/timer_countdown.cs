@@ -21,6 +21,11 @@ public class timer_countdown : MonoBehaviour
 
     public void Update()
     {
+        if (secondsLeft < 0)
+        {
+            Application.Quit();
+            Debug.Log("quit");
+        }
         if (takingAway && secondsLeft > 0)
         {
             secondsLeft -= Time.deltaTime;
