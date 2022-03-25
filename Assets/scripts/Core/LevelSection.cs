@@ -15,6 +15,7 @@ public class LevelSection : MonoBehaviour
         {
             Instantiate(GameManager.Instance.GetRandomLitter(), GetRandomPosition(), Quaternion.identity, transform);
         }
+        Instantiate(GameManager.Instance.GetRandomHouse(), transform);
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class LevelSection : MonoBehaviour
         float xVal = size.x * .5f;
         float yVal = size.y * .5f;
         return new Vector3(Random.Range(transform.position.x - xVal, transform.position.x + xVal),
-            0,
-            Random.Range(transform.position.y - yVal, transform.position.y + yVal));
+            transform.position.y,
+            Random.Range(transform.position.z - yVal, transform.position.z + yVal));
     }
 }

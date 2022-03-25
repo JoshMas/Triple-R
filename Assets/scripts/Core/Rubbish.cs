@@ -15,10 +15,22 @@ public class Rubbish : MonoBehaviour
         sphereCollider.isTrigger = true;
     }
 
+    private void Update()
+    {
+        transform.Translate(velocity * Time.deltaTime);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
+        {
             other.GetComponent<Inventory>().AddRubbish(gameObject);
+        }
+        else if (other.CompareTag("Bin"))
+        {
+
+            Destroy(gameObject);
+        }
         else
             velocity = Vector3.zero;
     }
