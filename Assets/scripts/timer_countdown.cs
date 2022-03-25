@@ -11,12 +11,35 @@ public class timer_countdown : MonoBehaviour
     public Image fillImage;
     public Color full, empty;
 
+    public static timer_countdown Instance;
+    private void Singleton()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Awake()
+    {
+        Singleton();
+    }
 
     public void Start()
     {
         secondsLeft = maxTime;
         timerSlider.maxValue = maxTime;
         timerSlider.value = secondsLeft;
+    }
+
+    public void AddTime(float _time)
+    {
+        secondsLeft += _time;
+        secondsLeft = maxTime < secondsLeft ? maxTime : secondsLeft;
     }
 
     public void Update()

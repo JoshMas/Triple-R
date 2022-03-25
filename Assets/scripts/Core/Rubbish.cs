@@ -28,7 +28,7 @@ public class Rubbish : MonoBehaviour
         }
         else if (other.CompareTag("Bin"))
         {
-
+            timer_countdown.Instance.AddTime(2);
             Destroy(gameObject);
         }
         else
