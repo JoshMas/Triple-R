@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 962663503668178469}
   - component: {fileID: 6405702248628760519}
   m_Layer: 0
-  m_Name: Litter
+  m_Name: Recyclable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5cd3468cf564141871b9d00e292a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Recyclable: 0
+  Recyclable: 1
 --- !u!135 &6405702248628760519
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -118,7 +118,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2a666313c345e44ba68a2e5531876cb, type: 2}
+  - {fileID: 2100000, guid: bad82c2810608d1459f44cfdb6d64edc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
