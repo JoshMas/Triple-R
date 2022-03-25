@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class timer_countdown : MonoBehaviour
 {
-    public Text textDisplay;
-    public float secondsLeft = 30;
+    public Slider timerSlider;
+    public float maxTime,secondsLeft;
     public bool takingAway = false;
+    public Image fillImage;
+    public Color full, empty;
 
 
     public void Start()
     {
-        textDisplay.text = "00: " + (int)secondsLeft;
+        secondsLeft = maxTime;
+        timerSlider.maxValue = maxTime;
+        timerSlider.value = secondsLeft;
     }
 
     public void Update()
@@ -20,7 +24,9 @@ public class timer_countdown : MonoBehaviour
         if (takingAway && secondsLeft > 0)
         {
             secondsLeft -= Time.deltaTime;
-            textDisplay.text = "00: " + (int)secondsLeft;
+            timerSlider.value = secondsLeft;
+
+            fillImage.color = Color.Lerp(empty, full, secondsLeft/maxTime);
         }
     }
 }
