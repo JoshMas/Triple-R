@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -29,6 +30,9 @@ public class GameManager : MonoBehaviour
     private float litterMax;
     [SerializeField]
     private GameObject levelSectionPrefab;
+
+    private int score = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     #region Prefabs
     [Space]
@@ -95,6 +99,12 @@ public class GameManager : MonoBehaviour
         GameObject oldSection = level[0];
         level.Remove(oldSection);
         Destroy(oldSection);
+    }
+
+    public void AddScore(int _amount)
+    {
+        score += _amount;
+        scoreText.text = "Score: " + score;
     }
 
     #region GetPrefab Methods

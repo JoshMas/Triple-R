@@ -26,7 +26,7 @@ public class RubbishBag : MonoBehaviour
         {
 
         }
-        Debug.Log(rubbish.Count);
+        //Debug.Log(rubbish.Count);
     }
 
     public void ShootRubbish(Vector3 _velocity)
