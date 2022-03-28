@@ -7,7 +7,8 @@ public class Game_Manager : MonoBehaviour
     public static Game_Manager instance;
     [SerializeField] private int score;
 
-    public void Start()
+    public void Awake()
+
     {
         instance = this;
     }
