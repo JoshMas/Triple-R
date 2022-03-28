@@ -43,7 +43,22 @@ public class Inventory : MonoBehaviour
 
     public void AddRubbish(GameObject _rubbish)
     {
-        activeBag.AddRubbish(_rubbish);
+        if (manualSort)
+        {
+            activeBag.AddRubbish(_rubbish);
+        }
+        else
+        {
+            if (_rubbish.GetComponent<Rubbish>().Recyclable)
+            {
+                inactiveBag.AddRubbish(_rubbish);
+            }
+            else
+            {
+                activeBag.AddRubbish(_rubbish);
+            }
+        }
+
         UpdateText();
     }
 
@@ -55,7 +70,14 @@ public class Inventory : MonoBehaviour
 
     private void ShootRubbish(bool _recyclable)
     {
-        activeBag.ShootRubbish(_recyclable, shootingVelocity);
+        if (_recyclable)
+        {
+            inactiveBag.ShootRubbish(shootingVelocity);
+        }
+        else
+        {
+            activeBag.ShootRubbish(shootingVelocity);
+        }
         UpdateText();
     }
 
