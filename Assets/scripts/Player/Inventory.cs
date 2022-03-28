@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Inventory : MonoBehaviour
     [SerializeField] private RubbishBag inactiveBag;
 
     [SerializeField] private bool manualSort;
+
+    [SerializeField] private TextMeshProUGUI red;
+    [SerializeField] private TextMeshProUGUI yellow;
 
     private void Update()
     {
@@ -40,16 +44,25 @@ public class Inventory : MonoBehaviour
     public void AddRubbish(GameObject _rubbish)
     {
         activeBag.AddRubbish(_rubbish);
+        UpdateText();
     }
 
     private void ShootRubbish()
     {
         activeBag.ShootRubbish(shootingVelocity);
+        UpdateText();
     }
 
     private void ShootRubbish(bool _recyclable)
     {
         activeBag.ShootRubbish(_recyclable, shootingVelocity);
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        red.text = "" + activeBag.GetCapacityFraction();
+        yellow.text = "" + inactiveBag.GetCapacityFraction();
     }
 
     public void SwapBags()
@@ -57,5 +70,6 @@ public class Inventory : MonoBehaviour
         RubbishBag temp = activeBag;
         activeBag = inactiveBag;
         inactiveBag = temp;
+        UpdateText();
     }
 }

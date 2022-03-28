@@ -67,4 +67,9 @@ public class RubbishBag : MonoBehaviour
         shotScript.Shoot(_velocity);
         rubbish.Remove(shot);
     }
+
+    public float GetCapacityFraction()
+    {
+        return (float)rubbish.Count / capacity;
+    }
 }

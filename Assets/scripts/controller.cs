@@ -15,27 +15,27 @@ public class controller : MonoBehaviour
     private bool grounded = false;
     Rigidbody rb;
 
-
+    private Vector3 targetVelocity;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        rb.useGravity = false;
+        //rb.useGravity = false;
     }
 
     private void Update()
     {
-        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //targetVelocity = transform.TransformDirection(targetVelocity);
         targetVelocity *= speed;
 
-        transform.Translate(targetVelocity * Time.deltaTime);
-        
+        //transform.Translate(targetVelocity * Time.deltaTime);
     }
 
     void FixedUpdate()
     {
+        rb.velocity = targetVelocity;
 
         // Calculate how fast we should be moving
         // Apply a force that attempts to reach our target velocity
