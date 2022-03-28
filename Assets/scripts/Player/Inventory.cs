@@ -9,15 +9,31 @@ public class Inventory : MonoBehaviour
     [SerializeField] private RubbishBag activeBag;
     [SerializeField] private RubbishBag inactiveBag;
 
+    [SerializeField] private bool manualSort;
+
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (manualSort)
         {
-            SwapBags();
+            if (Input.GetMouseButtonDown(1))
+            {
+                SwapBags();
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                ShootRubbish();
+            }
         }
-        if (Input.GetMouseButtonDown(0))
+        else
         {
-            ShootRubbish();
+            if (Input.GetMouseButtonDown(0))
+            {
+                ShootRubbish(false);
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                ShootRubbish(true);
+            }
         }
     }
 
@@ -29,6 +45,11 @@ public class Inventory : MonoBehaviour
     private void ShootRubbish()
     {
         activeBag.ShootRubbish(shootingVelocity);
+    }
+
+    private void ShootRubbish(bool _recyclable)
+    {
+        activeBag.ShootRubbish(_recyclable, shootingVelocity);
     }
 
     public void SwapBags()
