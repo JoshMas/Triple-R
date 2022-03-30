@@ -3486,7 +3486,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007464198}
-  m_LocalRotation: {x: 0.19424808, y: -0.000000018870892, z: 0.0000000037368117, w: 0.98095244}
+  m_LocalRotation: {x: 0.19424808, y: 0.000000018870892, z: -0.0000000037368117, w: 0.98095244}
   m_LocalPosition: {x: 0, y: -11.977198, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3702,6 +3702,8 @@ MonoBehaviour:
   litterPrefabs:
   - {fileID: 962663503668178474, guid: 2081120b8107f93419581a37d42f0c1c, type: 3}
   - {fileID: 962663503668178474, guid: 2f3fa986b2eefb841ac7f452f9d7af7d, type: 3}
+  - {fileID: 962663503668178474, guid: e49d53a1f9b040c40985bd52103997f9, type: 3}
+  - {fileID: 962663503668178474, guid: 48b1414ef08dbc64789459ff62553b65, type: 3}
   obstaclePrefabs: []
   housePrefabs:
   - {fileID: 5299121176369331622, guid: ad1378b24527feb48a2bacbf546b2892, type: 3}
