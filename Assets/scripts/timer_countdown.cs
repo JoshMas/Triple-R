@@ -47,7 +47,7 @@ public class timer_countdown : MonoBehaviour
     {
         if (secondsLeft < 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("end");
         }
         if (takingAway && secondsLeft > 0)
         {
