@@ -424,7 +424,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268285466}
-  m_LocalRotation: {x: 0.20249201, y: 0.000000016849933, z: -0.0000000034841545, w: 0.9792839}
+  m_LocalRotation: {x: 0.21201201, y: 0.00000001681523, z: -0.0000000036479593, w: 0.9772671}
   m_LocalPosition: {x: 0, y: -8.681099, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1800,6 +1800,7 @@ MonoBehaviour:
   shootingVelocity: {x: -10, y: 0, z: 0}
   activeBag: {fileID: 1654078265}
   inactiveBag: {fileID: 1973043501}
+  manualSort: 0
 --- !u!1001 &1184771022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1813,7 +1814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 109346268508635250, guid: 96279d3c22cb31c4eada04aecda1ba04, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 109346268508635255, guid: 96279d3c22cb31c4eada04aecda1ba04, type: 3}
       propertyPath: m_RootOrder
@@ -2518,7 +2519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e78900016248674b8bb0aafc8424bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Recyclable: 1
   capacity: 100
 --- !u!4 &1654078266
 Transform:
@@ -2808,7 +2808,7 @@ Camera:
   near clip plane: 0.1
   far clip plane: 5000
   field of view: 40
-  orthographic: 1
+  orthographic: 0
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
@@ -2832,13 +2832,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898424988}
-  m_LocalRotation: {x: 0.34033546, y: -0.06509705, z: 0.02362551, w: 0.9377505}
-  m_LocalPosition: {x: 2.81, y: 26.29, z: -45.63}
+  m_LocalRotation: {x: 0.086815074, y: -0.06898892, z: 0.006026553, w: 0.9938145}
+  m_LocalPosition: {x: 3.07, y: 15.42, z: -47.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 39.894, y: -7.942, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.985, y: -7.942, z: 0}
 --- !u!114 &1898424992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3082,7 +3082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e78900016248674b8bb0aafc8424bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Recyclable: 0
   capacity: 100
 --- !u!4 &1973043502
 Transform:
@@ -3257,7 +3256,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007464198}
-  m_LocalRotation: {x: 0.17524368, y: -0.00000001893962, z: 0.0000000033712182, w: 0.9845251}
+  m_LocalRotation: {x: 0.19424807, y: -0.00000001887089, z: 0.0000000037368117, w: 0.98095244}
   m_LocalPosition: {x: 0, y: -8.681099, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
