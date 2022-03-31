@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private bool manualSort;
 
-    [SerializeField] private TextMeshProUGUI red;
-    [SerializeField] private TextMeshProUGUI yellow;
+
+    [SerializeField] private Slider activeSlider;
+    [SerializeField] private Image activeImage;
+    [SerializeField] private Slider inactiveSlider;
+    [SerializeField] private Image inactiveImage;
 
     private void Update()
     {
@@ -83,8 +87,8 @@ public class Inventory : MonoBehaviour
 
     private void UpdateText()
     {
-        red.text = "" + activeBag.GetCapacityFraction();
-        yellow.text = "" + inactiveBag.GetCapacityFraction();
+        activeSlider.value = activeBag.GetCapacityFraction();
+        inactiveSlider.value = inactiveBag.GetCapacityFraction();
     }
 
     public void SwapBags()
@@ -93,5 +97,7 @@ public class Inventory : MonoBehaviour
         activeBag = inactiveBag;
         inactiveBag = temp;
         UpdateText();
+        activeImage.color = activeBag.color;
+        inactiveImage.color = inactiveBag.color;
     }
 }

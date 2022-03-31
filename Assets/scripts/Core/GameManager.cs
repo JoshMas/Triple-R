@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void AddLevelSection(Vector3 _position)
+    public void AddLevelSection(Vector3 _position)
     {
         GameObject newSection = Instantiate(levelSectionPrefab, _position, Quaternion.identity);
         level.Add(newSection);

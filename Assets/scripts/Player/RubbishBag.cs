@@ -8,6 +8,7 @@ public class RubbishBag : MonoBehaviour
     private List<GameObject> rubbish;
     [SerializeField]
     private int capacity;
+    public Color color;
 
     private void Awake()
     {
