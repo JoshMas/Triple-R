@@ -8,7 +8,6 @@ public class Rubbish : MonoBehaviour
     public bool Recyclable;
     private SphereCollider sphereCollider;
     private Vector3 velocity;
-
     private void Awake()
     {
         sphereCollider = GetComponent<SphereCollider>();
@@ -39,8 +38,13 @@ public class Rubbish : MonoBehaviour
             Destroy(gameObject);
         }
         else
+        {
+            timer_countdown.Instance.AddTime(-.5f);
             Destroy(gameObject);
+        }
     }
+
+
 
     public void Shoot(Vector3 _velocity)
     {

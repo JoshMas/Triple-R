@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/New Scene.unity
     guid: 0490ad0dddce3cd4ea9e1590686e524e
   - enabled: 1
     path: Assets/Scenes/end.unity
     guid: d5d7b06f2a0de6941a31d702f8a9c907
+  - enabled: 1
+    path: Assets/Scenes/TopDown.unity
+    guid: a973b0decb586734793d1236525f26bf
   m_configObjects: {}

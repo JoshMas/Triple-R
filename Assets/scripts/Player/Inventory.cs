@@ -13,11 +13,16 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private bool manualSort;
 
-
+    [SerializeField] private Image background;
     [SerializeField] private Slider activeSlider;
     [SerializeField] private Image activeImage;
     [SerializeField] private Slider inactiveSlider;
     [SerializeField] private Image inactiveImage;
+
+    private void Start()
+    {
+        background.color = activeBag.color;
+    }
 
     private void Update()
     {
@@ -97,6 +102,7 @@ public class Inventory : MonoBehaviour
         activeBag = inactiveBag;
         inactiveBag = temp;
         UpdateText();
+        background.color = activeBag.color;
         activeImage.color = activeBag.color;
         inactiveImage.color = inactiveBag.color;
     }
