@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float scrollSpeed;
     [SerializeField]
-    private float timeScaleMultiplier;
+    private float scrollMultiplier;
     [SerializeField]
-    private float timeScaleMax;
+    private float scrollMax;
     [SerializeField]
     private float litterInitial;
     [SerializeField]
@@ -82,8 +82,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.timeScale < timeScaleMax)
-            Time.timeScale += Time.deltaTime * timeScaleMultiplier;
+        if(scrollSpeed < scrollMax)
+            scrollSpeed += Time.deltaTime * scrollMultiplier;
 
         gameTimer += Time.deltaTime;
         levelSectionTimer += Time.deltaTime;
