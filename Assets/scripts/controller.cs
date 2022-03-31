@@ -21,7 +21,7 @@ public class controller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        //rb.useGravity = false;
+        rb.useGravity = false;
     }
 
     private void Update()

@@ -28,18 +28,18 @@ public class Rubbish : MonoBehaviour
         }
         else if (other.CompareTag("Bin"))
         {
-            if(other.GetComponent<Bin>().Recyclable == Recyclable)
+            if (other.GetComponent<Bin>().Recyclable == Recyclable)
             {
                 GameManager.Instance.AddScore(1);
                 timer_countdown.Instance.AddTime(2);
             }
-            else if(!Recyclable)
+            else if (!Recyclable)
                 timer_countdown.Instance.AddTime(-0.5f);
 
             Destroy(gameObject);
         }
         else
-            velocity = Vector3.zero;
+            Destroy(gameObject);
     }
 
     public void Shoot(Vector3 _velocity)
