@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class timer_countdown : MonoBehaviour
 {
@@ -46,8 +47,7 @@ public class timer_countdown : MonoBehaviour
     {
         if (secondsLeft < 0)
         {
-            Application.Quit();
-            Debug.Log("quit");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         if (takingAway && secondsLeft > 0)
         {

@@ -15,44 +15,49 @@ public class controller : MonoBehaviour
     private bool grounded = false;
     Rigidbody rb;
 
-
+    private Vector3 targetVelocity;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        rb.useGravity = false;
+        //rb.useGravity = false;
+    }
+
+    private void Update()
+    {
+        targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //targetVelocity = transform.TransformDirection(targetVelocity);
+        targetVelocity *= speed;
+
+        //transform.Translate(targetVelocity * Time.deltaTime);
     }
 
     void FixedUpdate()
     {
-        if (grounded)
+        rb.velocity = targetVelocity;
+
+        // Calculate how fast we should be moving
+        // Apply a force that attempts to reach our target velocity
+        /*
+        Vector3 velocity = rb.velocity;
+        Vector3 velocityChange = (targetVelocity - velocity);
+        velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+        velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+        velocityChange.y = 0;
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
+
+        // Jump
+        if (canJump && Input.GetButton("Jump"))
         {
-
-            // Calculate how fast we should be moving
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            targetVelocity = transform.TransformDirection(targetVelocity);
-            targetVelocity *= speed;
-
-            // Apply a force that attempts to reach our target velocity
-            Vector3 velocity = rb.velocity;
-            Vector3 velocityChange = (targetVelocity - velocity);
-            velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-            velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-            velocityChange.y = 0;
-            rb.AddForce(velocityChange, ForceMode.VelocityChange);
-
-            // Jump
-            if (canJump && Input.GetButton("Jump"))
-            {
-                rb.velocity = new Vector3(rb.velocity.x, CalculateJumpVerticalSpeed(), rb.velocity.z);
-            }
+            rb.velocity = new Vector3(rb.velocity.x, CalculateJumpVerticalSpeed(), rb.velocity.z);
         }
+        */
 
-        // We apply gravity manually for more tuning control
-        rb.AddForce(new Vector3(0, -gravity * rb.mass, 0));
+        //// We apply gravity manually for more tuning control
+        //rb.AddForce(new Vector3(0, -gravity * rb.mass, 0));
 
-        grounded = false;
+        //grounded = false;
     }
 
     void OnCollisionStay()
