@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     {
         Singleton();
         level = new List<GameObject>();
-        sectionLength = rubbishSectionPrefab.GetComponent<LevelSection>().Size.y;
+        sectionLength = rubbishSectionPrefab.GetComponent<RubbishSection>().Size.y;
     }
 
     // Start is called before the first frame update

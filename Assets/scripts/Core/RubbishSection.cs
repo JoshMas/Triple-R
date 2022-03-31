@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSection : MonoBehaviour
+public class RubbishSection : MonoBehaviour
 {
     [SerializeField]
     private Vector2 size;
