@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float litterMax;
     [SerializeField]
-    private GameObject levelSectionPrefab;
+    private GameObject rubbishSectionPrefab;
 
     private int score = 0;
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -64,15 +64,15 @@ public class GameManager : MonoBehaviour
     {
         Singleton();
         level = new List<GameObject>();
-        sectionLength = levelSectionPrefab.GetComponent<LevelSection>().Size.y;
+        sectionLength = rubbishSectionPrefab.GetComponent<LevelSection>().Size.y;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        AddLevelSection(transform.position);
-        AddLevelSection(transform.position - Vector3.back * sectionLength);
-        AddLevelSection(transform.position - 2 * sectionLength * Vector3.back);
+        AddRubbishSection(transform.position);
+        AddRubbishSection(transform.position - Vector3.back * sectionLength);
+        AddRubbishSection(transform.position - 2 * sectionLength * Vector3.back);
     }
 
     // Update is called once per frame
@@ -83,18 +83,18 @@ public class GameManager : MonoBehaviour
         if(levelSectionTimer >= sectionLength / scrollSpeed)
         {
             levelSectionTimer = 0;
-            AddLevelSection(transform.position - 2 * sectionLength * Vector3.back);
-            RemoveLevelSection();
+            AddRubbishSection(transform.position - 2 * sectionLength * Vector3.back);
+            RemoveRubbishSection();
         }
     }
 
-    public void AddLevelSection(Vector3 _position)
+    private void AddRubbishSection(Vector3 _position)
     {
-        GameObject newSection = Instantiate(levelSectionPrefab, _position, Quaternion.identity);
+        GameObject newSection = Instantiate(rubbishSectionPrefab, _position, Quaternion.identity);
         level.Add(newSection);
     }
 
-    private void RemoveLevelSection()
+    private void RemoveRubbishSection()
     {
         GameObject oldSection = level[0];
         level.Remove(oldSection);
